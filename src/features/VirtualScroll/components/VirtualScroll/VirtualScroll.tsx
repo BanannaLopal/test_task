@@ -1,11 +1,12 @@
 import { Virtuoso } from 'react-virtuoso'
 import { useCallback, FunctionComponent, useRef } from 'react'
 import CSS from './VirtualScroll.module.scss';
+import { Footer } from '../VirtualScrollFooter/VirtualScrollFooter';
 
-export function VirtualScroll<T>({ loadMore, data, item, header = undefined }: {
+export function VirtualScroll<T>({loadMore, data, item, header = undefined}: {
   loadMore: (index: number) => void;
   data: T[];
-  item: FunctionComponent<{data: T}>;
+  item: FunctionComponent<{ data: T }>;
   header?: FunctionComponent | undefined;
 }) {
   const scrollerRef = useRef<HTMLElement | Window | null | undefined>();
@@ -16,7 +17,7 @@ export function VirtualScroll<T>({ loadMore, data, item, header = undefined }: {
   }, [loadMore])
 
   const scrollTop = useCallback(() => {
-    (scrollerRef.current as HTMLElement).scrollTo({ top: 0, behavior: 'smooth' });
+    (scrollerRef.current as HTMLElement).scrollTo({top: 0, behavior: 'smooth'});
   }, [])
 
 
@@ -24,27 +25,16 @@ export function VirtualScroll<T>({ loadMore, data, item, header = undefined }: {
     <div>
       <Virtuoso
         scrollerRef={(ref) => scrollerRef.current = ref}
-        style={{ height: '100vh' }}
+        style={{height: '100vh'}}
         data={data}
         endReached={handleLoadMore}
         overscan={400}
         itemContent={(index: number, data: T) => {
-          return <Item data={data} />
+          return <Item data={data}/>
         }}
-        components={{ Footer, Header: header }}
+        components={{Footer, Header: header}}
       />
-      <button type='button' className={CSS.topBtn} onClick={scrollTop}>Наверх</button>
-    </div>
-  )
-}
-
-
-const Footer = () => {
-  return (
-    <div
-      className={CSS.footer}
-    >
-      Loading...
+      <button type="button" className={CSS.topBtn} onClick={scrollTop}>Наверх</button>
     </div>
   )
 }

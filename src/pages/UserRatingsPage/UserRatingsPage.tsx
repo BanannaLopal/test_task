@@ -1,9 +1,9 @@
-import { UserRatings } from "features/UserRatings";
+import { UserRatings } from 'features/UserRatings';
 
 export const UserRatingsPage = () => {
-  return(
+  return (
     <div>
-      <UserRatings />
+      <UserRatings/>
     </div>
   );
 }

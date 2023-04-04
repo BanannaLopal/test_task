@@ -1,1 +1,1 @@
-export { VirtualScroll } from './components/VirtualScroll';
+export { VirtualScroll } from './components/VirtualScroll/VirtualScroll';

@@ -1,4 +1,4 @@
-import { UserRating } from "../models/UserRating.model";
+import { UserRating } from '../models/UserRating.model';
 
 export const UserRatingMock: UserRating[] =
   [
