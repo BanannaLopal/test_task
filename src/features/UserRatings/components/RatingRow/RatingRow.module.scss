@@ -1,0 +1,17 @@
+.root {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &Header {
+    margin-bottom: 16px;
+  }
+}
+
+.bigCell {
+  width: 200px;
+}
+
+.smallCell {
+  width: 100px;
+}
